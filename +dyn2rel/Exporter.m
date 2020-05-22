@@ -13,6 +13,7 @@ classdef Exporter < handle
     %   out_bin  - binning of the .mrcs.
     %   tbl_mul  - scale of the table.
     %   split_h  - split particle in random halves.
+    %   inv_dz   - invert the defocus compensation.
     %
     % Exporter Methods:
     %    exec              - exports the dynamo project as a relion project
@@ -24,6 +25,7 @@ classdef Exporter < handle
         out_bin  % binning of the .mrcs.
         tbl_mul  % binning of the table.
         split_h  % split halves. < 1: no random subset, 1: even-odd, > 1: table column.
+        inv_dz   % invert the defocus compensation.
         skip_gb  % skip goldbeads factor.
     end
     
@@ -43,6 +45,7 @@ classdef Exporter < handle
             obj.tbl_mul  = 1;
             obj.split_h  = 0;
             obj.skip_gb  = 0;
+            obj.inv_dz   = false;
             
             obj.use_ctf       = false;
             obj.detector_size = 14;
@@ -252,6 +255,9 @@ classdef Exporter < handle
             
             if( obj.use_ctf )
                 dz = tomo_class.pix_siz * pos(3);
+                if( obj.inv_dz )
+                    dz = -dz;
+                end
                 fprintf(fp_star, '\t%12.6f',tomo_class.defocus.U+dz);
                 fprintf(fp_star, '\t%12.6f',tomo_class.defocus.V+dz);
                 fprintf(fp_star, '\t%f',tomo_class.defocus.A);
