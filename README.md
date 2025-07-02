@@ -1,2 +1,4 @@
 # dyn2rel
-`dyn2rel` is a MATLAB package to export a [DYNAMO](https://www.dynamo-em.org//w/index.php?title=Main_Page) project into [RELION-3.1](https://relion.readthedocs.io/en/release-3.1/) data format.
+`dyn2rel` is a MATLAB package to convert particle data between two subtomogram averaging softwares: [Dynamo](https://www.dynamo-em.org/) and [RELION-3.1](https://relion.readthedocs.io/en/release-3.1/).
+
+This version supports export of a `Dynamo`-style particles table as `.tbl` file and associated tomograms to the `RELION-3.1`-style `.star` files for particles and tomograms.
