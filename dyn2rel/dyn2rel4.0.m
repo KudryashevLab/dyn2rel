@@ -4,6 +4,9 @@
 % the script was originally made by Vasilii Mikirtumov (https://github.com/vamikirt)
 % modified by Xiaofeng Chu (https://github.com/xchu3123)
 %
+%% activate auxiliarly utils
+addpath /path/to/dyn2rel/utils
+
 %% preparation of ptcls.star
 bear_path = 'path/to/tomobear/output'; 
 tbl = dread('path/to/particle/tbl//class1.tbl');

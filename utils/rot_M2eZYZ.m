@@ -1,3 +1,6 @@
+% This function is a part of dyn2rel3 package, originally written
+% by Ricardo Miguel Sánchez Loayza (https://github.com/rkms86)
+
 function eu = rot_M2eZYZ(R)
 
 eu = zeros(1,3);
